@@ -1,7 +1,7 @@
 resource "google_dns_managed_zone" "this" {
   provider = google.this
 
-  dns_name = "${local.this_hostname}."
+  dns_name = "248.sh."
   name     = "main"
 
   dnssec_config {
@@ -31,7 +31,7 @@ resource "google_dns_record_set" "dmarc" {
   type         = "TXT"
 
   rrdatas = [
-    "\"v=DMARC1; p=quarantine; pct=100; rua=mailto:postmaster@${local.this_hostname}\"",
+    "\"v=DMARC1; p=quarantine; pct=100; rua=mailto:postmaster@248.sh\"",
   ]
 }
 resource "google_dns_record_set" "github" {
@@ -107,7 +107,7 @@ resource "google_dns_record_set" "mx" {
 #   type         = "TXT"
 
 #   rrdatas = [
-#     "\"v=TLSRPTv1; rua=mailto:smtp-tls-reports@${local.this_hostname}\"",
+#     "\"v=TLSRPTv1; rua=mailto:smtp-tls-reports@248.sh\"",
 #   ]
 # }
 resource "google_dns_record_set" "spf" {

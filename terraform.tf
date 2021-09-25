@@ -7,9 +7,15 @@ terraform {
     }
   }
   required_providers {
+    digitalocean = {
+      source = "digitalocean/digitalocean"
+    }
     google = {
       source = "hashicorp/google"
     }
+    # namecheap = {
+    #   source = "namecheap/namecheap"
+    # }
   }
-  required_version = ">= 0.14"
+  required_version = ">= 1"
 }

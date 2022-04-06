@@ -10,9 +10,6 @@ terraform {
     digitalocean = {
       source = "digitalocean/digitalocean"
     }
-    google = {
-      source = "hashicorp/google"
-    }
     # namecheap = {
     #   source = "namecheap/namecheap"
     # }

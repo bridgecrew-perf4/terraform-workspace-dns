@@ -1,3 +1,7 @@
+data "digitalocean_project" "this" {
+  name = "248-sh"
+}
+
 resource "digitalocean_domain" "this" {
   name = "248.sh"
 }
@@ -87,4 +91,11 @@ resource "digitalocean_record" "spf" {
   type   = "TXT"
 
   value = each.value
+}
+
+resource "digitalocean_project_resources" "domains" {
+  project = data.digitalocean_project.this.id
+  resources = [
+    digitalocean_domain.this.urn,
+  ]
 }

@@ -1,18 +1,10 @@
 provider "digitalocean" {
-  token = data.terraform_remote_state.project.outputs.digitalocean_token
-}
-
-provider "google" {
-  alias = "this"
-
-  credentials = base64decode(data.terraform_remote_state.project.outputs.google_service_account_key.this.private_key)
-  project     = data.terraform_remote_state.project.outputs.google_project.this.project_id
+  token = var.do_token
 }
 
 # provider "namecheap" {
-#   user_name   = "lalala"
-#   api_user    = "lalala"
-#   api_key     = "lalala"
-#   client_ip   = "wat"
+#   user_name   = var.nc_user_name
+#   api_user    = var.nc_api_user
+#   api_key     = var.nc_api_key
 #   use_sandbox = false
 # }
